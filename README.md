@@ -34,6 +34,8 @@ Just pull this repo do changes in [info.json] and just host using github pages o
   },
 ```
 
+or just watch [this] youtube tutorial to finish up your own links!!!
+
 
 
 ## License
@@ -46,3 +48,4 @@ MIT
    [Links]:<https://iamkunal9.github.io/links>
    [`js/info.json`]: <https://github.com/iamkunal9/links/js/info.json>
    [info.json]: <https://github.com/iamkunal9/links/js/info.json>
+   [this]: <https://youtu.be/BZr6YM_Ovwc>
