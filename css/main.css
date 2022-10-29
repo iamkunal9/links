@@ -52,7 +52,7 @@ a{
 #rcorners1 {
     transition: transform .2s;
     border-radius: 25px;
-    background: #c5c9bf;
+    background: #f3f2ed;
     /* padding: 20px;  */
     width: 25rem;
     height: 15px;  
@@ -62,7 +62,7 @@ a{
 #rcorners2 {
     transition: transform .2s;
     border-radius: 25px;
-    background: #c5c9bf;
+    background: #f3f2ed;
     text-align: center;
     /* padding: 20px;  */
     width: 15rem;
