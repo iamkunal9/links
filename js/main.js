@@ -48,7 +48,7 @@ fetch("js/info.json")
         bgv.loop = true;
         bgv.playsinline = true; // Add playsinline attribute
         bgv.id = "bg";
-        bgv.innerHTML = "<source src='"+linknames['background']["video"]+"' type='video/mp4'>Your browser does not support HTML5 video.";
+        bgv.innerHTML = "<source src='"+linknames['background']["video"]+"' type='video/mp4'>";
         navbar.appendChild(bgv);
     }
 
