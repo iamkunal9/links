@@ -84,5 +84,14 @@ a{
         width: 9rem;
     }
   }
+  @media only screen and (max-width: 600px) and (max-device-width: 375px) {
+    #rcorners1 {
+      width: 20rem;
+    }
+    #rcorners2 {
+      width: 9rem;
+    }
+  }
+  
 
   

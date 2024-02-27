@@ -1,31 +1,37 @@
 var navbar = document.querySelector("body");
-import linknames from "./info.json" assert { type: "json" };
+var linknames = {};
+
+
 var data = document.createElement("p");
 data.innerHTML = "Code With Love By <a href='https://iamkunal9.github.io/links/' target='_blank'>iamkunal9</a>";
 
-// $("tr").click(function(){
-//     window.location = "https://google.com";
-//   });
+document.addEventListener('click', function(event) {
+    var target = event.target;
 
-$(function(){       
-    $('*[data-href]').click(function(){
-        window.open($(this).data('href'));
-        return false;
-    });
+    if (target.getAttribute('data-href')) {
+        var url = target.getAttribute('data-href');
+        window.open(url, '_blank');
+    }
 });
 
 
-function gethtml(name,link,hrf){
-    
-var html = `
-            <tr data-href='`+hrf+`'>
-                <th style='width: 0;'><img id='logo' src='`+link+`'></th>
-                <th style='position: relative; right:18px;'>`+name+`</th>
-              </tr>
-`
-return html;
-};
 
+function gethtml(name, link, hrf) {
+    var html = `
+    <img style="position:absolute; padding-left:5px " id='logo' data-href='` + hrf + `' src='` + link + `'>
+        <tr data-href='` + hrf + `'>
+            
+            <th style='padding:10px' data-href='` + hrf + `'>` + name + `</th>
+        </tr>
+    `
+    return html;
+};
+fetch("js/info.json")
+    .then(response => response.json())
+    .then(d => {
+        linknames = d;
+        
+    
 
     if(linknames['background']["video"].length == 0 && linknames['background']["image"].length > 5)
     {
@@ -40,6 +46,7 @@ return html;
         bgv.autoplay = true;
         bgv.muted = true;
         bgv.loop = true;
+        bgv.playsinline = true; // Add playsinline attribute
         bgv.id = "bg";
         bgv.innerHTML = "<source src='"+linknames['background']["video"]+"' type='video/mp4'>Your browser does not support HTML5 video.";
         navbar.appendChild(bgv);
@@ -74,7 +81,7 @@ projectp.id = "project";
 projectp.innerHTML = "My Projects";
 
 function procj(data){
-    console.log(data.length);
+    
     function html(name,hrf){
     var html =  `<td id="rcorners2" data-href='`+hrf+`'>`+name+`</td>`
     return html;
@@ -85,7 +92,7 @@ function procj(data){
         for(var i=0;i<Object.keys(data).length;i++){
             tabledata += html(Object.keys(data)[i],Object.values(data)[i]);
             if((i+1)%2==0){
-                console.log("as");
+                
                 tabledata += "</tr>";
                 tabledata += "<tr>";
             }
@@ -115,3 +122,7 @@ document.body.appendChild(footer);
 footer.appendChild(data);
 
 
+})
+.catch(error => {
+    console.error("Error fetching JSON data:", error);
+});
